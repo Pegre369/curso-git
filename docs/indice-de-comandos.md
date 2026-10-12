@@ -30,7 +30,11 @@ Referencia de todos los comandos que aparecen en el manual. Se puede consultar d
 | **Empezar una feature en Git Flow** | `git switch -c feature/<nombre> develop` | [10](10-estrategia-de-ramas.md#105-paso-a-paso) |
 | **Corregir producción (hotfix)** | `git switch -c hotfix/<version>-<nombre> main` | [10](10-estrategia-de-ramas.md#105-paso-a-paso) |
 | **Unir dejando constancia del merge** | `git merge --no-ff <rama>` | [10](10-estrategia-de-ramas.md#105-paso-a-paso) |
-| **Pedir revisión de mis cambios** | `gh pr create` | [5](05-trabajo-en-equipo.md) |
+| **Pedir revisión de mis cambios** | `gh pr create` | [5](05-trabajo-en-equipo.md), [11](11-administrar-pull-requests.md#112-crear-un-pr-completo) |
+| **Ver qué PRs esperan mi revisión** | `gh pr status` | [11](11-administrar-pull-requests.md#1110-buscar-y-filtrar-prs) |
+| **Probar en mi equipo el PR de otra persona** | `gh pr checkout <n>` | [11](11-administrar-pull-requests.md#115-revisar-un-pr-a-fondo) |
+| **Aprobar un PR** | `gh pr review <n> --approve` | [11](11-administrar-pull-requests.md#115-revisar-un-pr-a-fondo) |
+| **Unir un PR** | `gh pr merge <n> --squash --delete-branch` | [11](11-administrar-pull-requests.md#118-unir-un-pr) |
 | **Copiar un repo a otro con todo su historial** | `git clone --bare` → `git push --mirror` | [6](06-migracion.md) |
 | **Juntar varios repos en uno** | `git subtree add --prefix=<carpeta> <url> <rama>` | [6](06-migracion.md) |
 | **Cambiar la URL del repositorio remoto** | `git remote set-url origin <url>` | [6](06-migracion.md) |
@@ -254,8 +258,15 @@ Herramienta oficial de GitHub para la terminal. · [Cap. 2](02-instalacion.md), 
 
 | Comando | Uso |
 |---------|-----|
-| `gh auth login` | Inicia sesión en GitHub |
+| `gh auth login --web` | Inicia sesión en GitHub por navegador |
+| `gh auth status` | Muestra con qué cuenta y tipo de token estás conectado |
 | `gh pr create` | Abre un pull request |
+| `gh pr list` / `gh pr status` | Lista PRs / tus PRs y los que esperan tu revisión |
+| `gh pr view <n>` / `gh pr diff <n>` | Detalle y cambios de un PR |
+| `gh pr checkout <n>` | Descarga la rama de un PR para probarla |
+| `gh pr review <n>` | Aprueba (`--approve`), pide cambios (`--request-changes`) o comenta |
+| `gh pr merge <n>` | Une un PR (`--merge`, `--squash`, `--auto`) |
+| `gh pr close <n>` / `gh pr reopen <n>` | Cierra sin unir / reabre |
 | `gh gei migrate-repo` | Migra repos entre organizaciones con issues y PRs |
 
 ---

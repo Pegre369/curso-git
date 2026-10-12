@@ -44,6 +44,24 @@ Estás usando tu contraseña de GitHub. Configura la autenticación del [capítu
 - tu cuenta no tiene acceso al repositorio (si es privado, pide acceso), o
 - Windows guardó credenciales de otra cuenta: abre *Administrador de credenciales → Credenciales de Windows*, elimina las entradas `git:https://github.com` e intenta de nuevo.
 
+### `Resource not accessible by personal access token` (al usar `gh`)
+
+GitHub CLI está autenticado con un **token fine-grained** (empieza con `github_pat_`) que no tiene permiso para esa acción, por ejemplo crear un pull request. Compruébalo con `gh auth status`.
+
+- **Solución recomendada:** inicia sesión por navegador para que `gh` obtenga los permisos que necesita:
+
+  ```powershell
+  gh auth logout --hostname github.com
+  ```
+  ```powershell
+  gh auth login --hostname github.com --git-protocol https --web
+  ```
+
+  Después, `gh auth status` debe mostrar un token que empieza con `gho_`.
+- **Si debes usar el token:** en *Settings → Developer settings → Personal access tokens → Fine-grained tokens*, edita el token, da **Read and write** en *Pull requests* y *Contents*, y guarda con **Update**.
+
+> Cerrar la terminal **no** cierra la sesión de `gh`: queda guardada en el almacén de credenciales de Windows.
+
 ### `refusing to merge unrelated histories`
 
 Intentas unir dos repositorios sin historia común (por ejemplo, creaste el repo en GitHub con README y también hiciste `git init` local). Si es intencional:
