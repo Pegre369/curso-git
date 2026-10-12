@@ -34,8 +34,10 @@ Está pensado para líderes y equipos de TI que quieren adoptar control de versi
 ```
 curso-git/
 ├── README.md                  ← estás aquí
+├── LICENSE                    ← licencia del manual (CC BY 4.0)
 ├── docs/                      ← capítulos del manual
 └── scripts/
+    ├── LICENSE                ← licencia de los scripts (MIT)
     ├── migrar-repo.ps1        ← copia un repo a otro con todo su historial
     ├── combinar-repos.ps1     ← junta varios repos en uno, cada uno en su carpeta
     └── proyectos-ejemplo.csv  ← plantilla para combinar-repos.ps1
@@ -51,4 +53,17 @@ curso-git/
 
 ## Licencia
 
-Se recomienda publicar este manual bajo [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es), que permite compartirlo y adaptarlo citando la fuente. Al crear el repositorio en GitHub puedes elegir la licencia en el desplegable *Add a license*.
+© 2026 **Ing. Pedro Ordoñez**. Este repositorio usa dos licencias, una para cada tipo de contenido:
+
+| Contenido | Licencia | Puedes… | Condición |
+|---|---|---|---|
+| **Manual**: este README y la carpeta `docs/` | [Creative Commons Atribución 4.0 (CC BY 4.0)](LICENSE) | Copiarlo, compartirlo, adaptarlo y usarlo, incluso con fines comerciales | Citar al autor, enlazar a la licencia e indicar si hiciste cambios |
+| **Scripts**: la carpeta `scripts/` | [MIT](scripts/LICENSE) | Usarlos, modificarlos e integrarlos en tus propios proyectos | Conservar el aviso de copyright y la licencia |
+
+**Cómo citar este manual:**
+
+> *Manual de Git y GitHub: de cero a migrar tus repositorios*, por Ing. Pedro Ordoñez, bajo licencia [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es). Disponible en <https://github.com/pegre369/curso-git>.
+
+Resúmenes de cada licencia: [CC BY 4.0, en español](https://creativecommons.org/licenses/by/4.0/deed.es) · [MIT, en inglés](https://choosealicense.com/licenses/mit/). El texto legal válido es el de los archivos `LICENSE`, en inglés.
+
+Al enviar un pull request, aceptas que tu aporte se publique bajo la misma licencia que la parte del repositorio que modificas.
