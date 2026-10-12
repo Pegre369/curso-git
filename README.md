@@ -20,7 +20,7 @@ Está pensado para líderes y equipos de TI que quieren adoptar control de versi
 | 6 | [**Migrar repositorios con todo su historial**](docs/06-migracion.md) | Mover uno o varios proyectos a un repositorio nuevo | 1 h |
 | 7 | [Buenas prácticas y seguridad](docs/07-buenas-practicas.md) | Estándares para todo el equipo | 20 min |
 | 8 | [Solución de problemas](docs/08-solucion-de-problemas.md) | Cómo deshacer errores comunes | consulta |
-| — | [Chuleta de comandos](docs/chuleta.md) | Resumen de una página | consulta |
+| — | [Índice de comandos](docs/indice-de-comandos.md) | Búsqueda por tarea y referencia alfabética | consulta |
 
 ## ¿Tienes prisa?
 
