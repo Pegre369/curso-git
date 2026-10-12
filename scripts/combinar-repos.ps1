@@ -33,7 +33,10 @@ $ErrorActionPreference = 'Stop'
 
 function Invoke-Git {
     param([string[]]$Argumentos)
-    & git @Argumentos
+    # Git escribe su progreso en stderr; se muestra como texto para que
+    # PowerShell 5.1 no lo trate como error y detenga el script.
+    $ErrorActionPreference = 'Continue'
+    & git @Argumentos 2>&1 | ForEach-Object { Write-Host "$_" }
     if ($LASTEXITCODE -ne 0) {
         throw "Falló el comando: git $($Argumentos -join ' ')"
     }
