@@ -166,28 +166,150 @@ Guarda los **códigos de recuperación** en un lugar seguro, como el gestor de c
 
 ## 9.7 Responsables de código (CODEOWNERS)
 
-El archivo `CODEOWNERS` define **quién debe revisar** los cambios en cada parte del repositorio. GitHub los agrega automáticamente como revisores en cada PR.
+### ¿Qué es y para qué sirve?
 
-Crea el archivo `.github/CODEOWNERS`:
+Piensa en un edificio de oficinas: cada área tiene un **responsable**. Si alguien quiere cambiar algo en la sala de servidores, debe autorizarlo el jefe de infraestructura; si quiere cambiar algo en contabilidad, lo autoriza el contador.
 
-```text
-# Por defecto, el equipo de desarrollo revisa todo
-*                     @mi-empresa/desarrollo
+`CODEOWNERS` hace lo mismo con el código. Es un **archivo de texto** donde escribes **qué carpetas o archivos** tiene a cargo **cada persona o equipo**. Cuando alguien abre un pull request que modifica esos archivos, **GitHub pide automáticamente la revisión a su responsable**. Ya no tienes que acordarte de asignar revisores a mano.
 
-# Infraestructura revisa los scripts de despliegue
-/scripts/             @mi-empresa/infraestructura
+### Cómo funciona, paso a paso
 
-# Los workflows de GitHub Actions, solo el líder técnico
-/.github/workflows/   @usuario-lider
-
-# La documentación puede revisarla cualquiera de estos dos
-/docs/                @usuario-a @usuario-b
+```mermaid
+flowchart LR
+    A["1. Ana modifica<br/>scripts/migrar-repo.ps1"] --> B["2. Abre un<br/>pull request"]
+    B --> C["3. GitHub lee CODEOWNERS:<br/>/scripts/ es de Luis"]
+    C --> D["4. Luis es agregado<br/>como revisor"]
+    D --> E["5. Luis aprueba<br/>→ se puede unir"]
 ```
 
-- Se lee de arriba hacia abajo; **la última regla que coincide gana**.
-- Los responsables deben tener al menos permiso **Write**.
+### Dónde se guarda
 
-Para hacerlo **obligatorio**, en el ruleset de la rama principal ([capítulo 5](05-trabajo-en-equipo.md#proteger-la-rama-main)) activa **Require review from Code Owners**.
+El archivo se llama exactamente **`CODEOWNERS`**, en mayúsculas y **sin extensión** (no `.txt`, no `.md`). Va dentro de la carpeta `.github` en la raíz del repositorio:
+
+```text
+curso-git/
+├── .github/
+│   └── CODEOWNERS      ← aquí
+├── docs/
+├── scripts/
+└── README.md
+```
+
+> GitHub también lo acepta en la raíz o dentro de `docs/`, pero `.github/` es el lugar más común.
+
+### Cómo se lee una línea
+
+Cada línea es una regla con **dos partes**, separadas por espacios:
+
+```text
+/scripts/       @luis-infra
+└───┬───┘       └────┬────┘
+ ¿QUÉ archivos?  ¿QUIÉN los revisa?
+```
+
+| Parte | Qué escribir | Ejemplo |
+|---|---|---|
+| **¿Qué archivos?** | Una carpeta, un archivo o un tipo de archivo | `/scripts/`, `README.md`, `*.ps1` |
+| **¿Quién revisa?** | Uno o varios responsables, separados por espacios | `@luis-infra` o `@luis-infra @ana-dev` |
+
+Los responsables se escriben de tres formas:
+
+| Forma | Significa | Ejemplo |
+|---|---|---|
+| `@usuario` | Una persona (su usuario de GitHub) | `@pegre369` |
+| `@organizacion/equipo` | Un equipo completo de una organización ([9.3](#93-gestionar-personas-en-una-organización)) | `@mi-empresa/infraestructura` |
+| `correo@empresa.com` | Una persona, por el correo de su cuenta de GitHub | `luis@empresa.com` |
+
+Las líneas que empiezan con **`#`** son **comentarios**: GitHub las ignora y sirven para explicar la regla a otras personas.
+
+### Cómo indicar los archivos
+
+| Escribes | Aplica a | Ejemplo de archivos que cubre |
+|---|---|---|
+| `*` | **Todo** el repositorio | Cualquier archivo |
+| `*.ps1` | Todos los archivos con esa extensión, estén donde estén | `scripts/migrar-repo.ps1`, `herramientas/limpiar.ps1` |
+| `/scripts/` | La carpeta `scripts` de la raíz y todo lo que contiene | `scripts/migrar-repo.ps1`, `scripts/datos/lista.csv` |
+| `/docs/*` | Solo los archivos directos de `docs`, sin subcarpetas | `docs/01-conceptos.md`, pero **no** `docs/imagenes/logo.png` |
+| `README.md` | Ese archivo, en cualquier carpeta | `README.md`, `docs/README.md` |
+| `/README.md` | Solo el `README.md` de la raíz | `README.md` |
+
+> **Truco:** la `/` al inicio significa "desde la raíz del repositorio". La `/` al final significa "es una carpeta".
+
+### La regla más importante: gana la última
+
+GitHub lee el archivo **de arriba hacia abajo**, y si un archivo coincide con varias reglas, **manda la última que coincide**. Por eso:
+
+- la regla **general** (`*`) va **arriba**;
+- las reglas **específicas** van **abajo**.
+
+Ejemplo:
+
+```text
+*            @ana-dev
+/scripts/    @luis-infra
+```
+
+| Archivo modificado | Reglas que coinciden | ¿Quién revisa? |
+|---|---|---|
+| `README.md` | Solo `*` | **@ana-dev** |
+| `docs/06-migracion.md` | Solo `*` | **@ana-dev** |
+| `scripts/migrar-repo.ps1` | `*` **y** `/scripts/` → gana la última | **@luis-infra** (Ana **no**) |
+
+> ⚠️ Si escribes las líneas al revés (`/scripts/` arriba y `*` abajo), **`*` ganaría siempre** y Luis nunca sería llamado a revisar.
+
+Si quieres que **ambos** revisen los scripts, ponlos juntos en la misma línea: `/scripts/ @luis-infra @ana-dev`. Ojo: con **una sola aprobación de cualquiera de los dos** es suficiente.
+
+### Ejemplo completo y comentado
+
+```text
+# ============================================================
+#  RESPONSABLES DEL REPOSITORIO curso-git
+#  Regla: la ÚLTIMA línea que coincide con un archivo es la que manda.
+#  Por eso lo general va arriba y lo específico abajo.
+# ============================================================
+
+# 1. Por defecto, cualquier cambio lo revisa el dueño del manual
+*                       @pegre369
+
+# 2. Los scripts de PowerShell los revisa el equipo de infraestructura
+/scripts/               @mi-empresa/infraestructura
+
+# 3. El capítulo de seguridad lo revisan el dueño y el oficial de seguridad
+#    (basta con que apruebe uno de los dos)
+/docs/09-seguridad-y-colaboradores.md   @pegre369 @oficial-seguridad
+
+# 4. Este mismo archivo solo lo puede cambiar el dueño
+/.github/CODEOWNERS     @pegre369
+```
+
+> La regla 4 es una buena práctica: evita que alguien se agregue a sí mismo como responsable para aprobar sus propios cambios.
+
+### Crearlo desde GitHub, sin comandos
+
+1. En tu repositorio, cambia a la rama **`develop`** con el selector de ramas.
+2. **Add file → Create new file**.
+3. En el nombre escribe **`.github/CODEOWNERS`**. Al escribir la `/`, GitHub crea la carpeta automáticamente.
+4. Escribe tus reglas.
+5. **Commit changes…** → elige **Create a new branch** (por ejemplo, `chore/agregar-codeowners`) → **Propose changes** → abre el pull request hacia `develop`.
+
+Después del merge, abre el archivo en GitHub. Si alguna línea tiene un error (un usuario que no existe o sin permisos), **GitHub la marca y explica el problema**.
+
+### Hacerlo obligatorio
+
+Por sí solo, `CODEOWNERS` **solo pide** la revisión: el PR podría unirse sin ella. Para que sea **obligatoria**:
+
+*Settings → Rules → Rulesets* → edita el ruleset de `main` y de `develop` ([capítulo 10.8](10-estrategia-de-ramas.md#108-configurar-github-para-git-flow)) → dentro de **Require a pull request before merging** activa **Require review from Code Owners**.
+
+### Requisitos y errores comunes
+
+| Situación | Qué pasa | Solución |
+|---|---|---|
+| El responsable no tiene permiso **Write** | GitHub ignora esa regla | Dale permiso Write o superior ([9.4](#94-roles-y-permisos)) |
+| Usas un equipo `@org/equipo` en un repo personal | No funciona | Los equipos solo existen en organizaciones |
+| El archivo está solo en una rama de trabajo | No tiene efecto | Debe estar en la rama **destino** del PR. En Git Flow, en `develop` **y** en `main` |
+| El archivo se llama `CODEOWNERS.txt` o `codeowners` | GitHub no lo reconoce | Nombre exacto: `CODEOWNERS` |
+| El autor del PR es el único responsable | No puede aprobar su propio PR | Agrega un segundo responsable en esa línea |
+| Repositorio **privado** con plan gratuito | La función no está disponible | Requiere GitHub Pro, Team o Enterprise. En repos públicos es gratis |
 
 ---
 
