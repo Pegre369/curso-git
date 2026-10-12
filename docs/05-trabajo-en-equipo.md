@@ -6,6 +6,8 @@
 
 Un pull request es una **solicitud formal** para unir una rama a `main`. Es el corazón del trabajo en equipo porque permite revisar el código **antes** de que llegue a producción.
 
+> Aquí verás lo esencial: abrir, revisar y unir. Para la administración del día a día (borradores, etiquetas, responder revisiones, conflictos, filtros y comandos `gh pr`) consulta el [capítulo 11](11-administrar-pull-requests.md).
+
 ### Abrir un pull request
 
 1. Sube tu rama (`git push -u origin feature/mi-cambio`).

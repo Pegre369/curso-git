@@ -1,6 +1,6 @@
 # 10. Estrategia de ramas: Git Flow y tipos de rama
 
-[← Seguridad y colaboradores](09-seguridad-y-colaboradores.md) · [Índice de comandos →](indice-de-comandos.md)
+[← Seguridad y colaboradores](09-seguridad-y-colaboradores.md) · [Siguiente: Administrar pull requests →](11-administrar-pull-requests.md)
 
 Una **estrategia de ramas** es el acuerdo del equipo sobre *qué ramas existen*, *cómo se llaman* y *por dónde viaja un cambio* hasta llegar a producción. Sin ese acuerdo, cada persona trabaja a su manera y el repositorio se vuelve difícil de entender.
 
@@ -447,4 +447,4 @@ SIEMPRE    pull request + revisión; nunca push directo a main ni a develop
 
 ---
 
-[← Seguridad y colaboradores](09-seguridad-y-colaboradores.md) · [Índice de comandos →](indice-de-comandos.md)
+[← Seguridad y colaboradores](09-seguridad-y-colaboradores.md) · [Siguiente: Administrar pull requests →](11-administrar-pull-requests.md)
