@@ -16,6 +16,8 @@ Estas reglas sirven como **estándar de equipo**. Se recomienda adoptarlas por e
 
 ## Seguridad
 
+> Esta sección resume lo esencial. La guía completa (colaboradores, roles, 2FA, CODEOWNERS, tokens y auditoría) está en el [capítulo 9](09-seguridad-y-colaboradores.md).
+
 ### Nunca subas secretos
 
 Contraseñas, tokens, llaves API, cadenas de conexión o certificados **no deben estar en el repositorio**. Aunque los borres después, **siguen en el historial**.

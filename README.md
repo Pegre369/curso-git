@@ -20,6 +20,7 @@ Está pensado para líderes y equipos de TI que quieren adoptar control de versi
 | 6 | [**Migrar repositorios con todo su historial**](docs/06-migracion.md) | Mover uno o varios proyectos a un repositorio nuevo | 1 h |
 | 7 | [Buenas prácticas y seguridad](docs/07-buenas-practicas.md) | Estándares para todo el equipo | 20 min |
 | 8 | [Solución de problemas](docs/08-solucion-de-problemas.md) | Cómo deshacer errores comunes | consulta |
+| 9 | [Seguridad y gestión de colaboradores](docs/09-seguridad-y-colaboradores.md) | Agregar personas, roles, 2FA, CODEOWNERS, alertas y auditoría | 45 min |
 | — | [Índice de comandos](docs/indice-de-comandos.md) | Búsqueda por tarea y referencia alfabética | consulta |
 
 ## ¿Tienes prisa?
@@ -30,7 +31,7 @@ Está pensado para líderes y equipos de TI que quieren adoptar control de versi
 ## Contenido del repositorio
 
 ```
-manual-git-github/
+curso-git/
 ├── README.md                  ← estás aquí
 ├── docs/                      ← capítulos del manual
 └── scripts/
