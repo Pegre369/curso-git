@@ -8,7 +8,7 @@ Estas reglas sirven como **estándar de equipo**. Se recomienda adoptarlas por e
 
 1. **Todo el código vive en la organización de GitHub**, nunca solo en una computadora ni en cuentas personales.
 2. **Nadie sube directo a `main`.** Todo cambio entra por pull request con al menos una aprobación.
-3. **Una rama por tarea**, con nombre descriptivo (`feature/…`, `fix/…`).
+3. **Una rama por tarea**, con nombre según la convención del equipo (`feature/…`, `fix/…`, `chore/…`). Ver la [estrategia de ramas](10-estrategia-de-ramas.md).
 4. **Commits pequeños y frecuentes**, con mensajes claros.
 5. **`git pull` al empezar el día**, `git push` al terminarlo.
 6. **Cada repositorio tiene un `README.md`** que explica qué es, cómo instalarlo y a quién contactar.

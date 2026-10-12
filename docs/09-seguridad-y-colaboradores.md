@@ -1,6 +1,6 @@
 # 9. Seguridad y gestión de colaboradores
 
-[← Solución de problemas](08-solucion-de-problemas.md) · [Índice de comandos →](indice-de-comandos.md)
+[← Solución de problemas](08-solucion-de-problemas.md) · [Siguiente: Estrategia de ramas →](10-estrategia-de-ramas.md)
 
 El código fuente es uno de los activos más valiosos del área de TI. Este capítulo explica **quién puede entrar, qué puede hacer y cómo detectar riesgos** en tus repositorios de GitHub.
 
@@ -131,7 +131,7 @@ En la misma página, desactiva **Repository creation** para miembros si quieres 
 - [ ] Activa la **verificación en dos pasos** antes de recibir la invitación.
 - [ ] Se le invita a la organización como **Member**.
 - [ ] Se le agrega a su **equipo**, no a repositorios sueltos.
-- [ ] Recibe este manual (capítulos 1 a 5).
+- [ ] Recibe este manual (capítulos 1 a 5 y la estrategia de ramas del capítulo 10).
 
 ### Baja (offboarding), el mismo día de su salida
 
@@ -300,7 +300,7 @@ Resumen para configurar una organización segura desde cero:
 | 3 | Exigir 2FA | *Settings → Authentication security* |
 | 4 | Permiso base **No permission** | *Settings → Member privileges* |
 | 5 | Crear equipos por área y dar acceso por equipo | *Teams* |
-| 6 | Proteger las ramas principales con rulesets | [Cap. 5](05-trabajo-en-equipo.md#proteger-la-rama-main) |
+| 6 | Proteger `main` y `develop` con rulesets | [Cap. 5](05-trabajo-en-equipo.md#proteger-la-rama-main), [Cap. 10](10-estrategia-de-ramas.md#108-configurar-github-para-git-flow) |
 | 7 | Agregar `CODEOWNERS` y `SECURITY.md` | Raíz o `.github/` |
 | 8 | Activar Dependabot alerts y security updates | *Settings → Advanced Security* |
 | 9 | Restringir tokens classic y apps de terceros | *Settings → Personal access tokens / Third-party access* |
@@ -308,4 +308,4 @@ Resumen para configurar una organización segura desde cero:
 
 ---
 
-[← Solución de problemas](08-solucion-de-problemas.md) · [Índice de comandos →](indice-de-comandos.md)
+[← Solución de problemas](08-solucion-de-problemas.md) · [Siguiente: Estrategia de ramas →](10-estrategia-de-ramas.md)
