@@ -1,0 +1,52 @@
+# Manual de Git y GitHub: de cero a migrar tus repositorios
+
+Manual práctico en español para quien **nunca ha usado Git** y necesita, además de aprender lo básico, **llevar sus proyectos a un repositorio nuevo sin perder el historial**.
+
+Está pensado para líderes y equipos de TI que quieren adoptar control de versiones como práctica estándar: cada capítulo explica primero el *por qué* y después el *cómo*, con comandos listos para copiar.
+
+> Los ejemplos usan **Windows** (PowerShell), pero los comandos de Git son idénticos en macOS y Linux.
+
+---
+
+## Ruta de aprendizaje
+
+| # | Capítulo | Qué aprenderás | Tiempo aprox. |
+|---|----------|----------------|---------------|
+| 1 | [Conceptos básicos](docs/01-conceptos.md) | Qué es Git, qué es GitHub y en qué se diferencian | 15 min |
+| 2 | [Instalación y configuración](docs/02-instalacion.md) | Instalar Git, crear cuenta, autenticarte | 30 min |
+| 3 | [Tu primer repositorio](docs/03-primer-repositorio.md) | Crear, clonar, guardar cambios y subirlos | 30 min |
+| 4 | [Ramas y flujo diario](docs/04-ramas-y-flujo.md) | Trabajar en paralelo sin romper nada | 45 min |
+| 5 | [Trabajo en equipo en GitHub](docs/05-trabajo-en-equipo.md) | Pull requests, revisiones, organizaciones y permisos | 45 min |
+| 6 | [**Migrar repositorios con todo su historial**](docs/06-migracion.md) | Mover uno o varios proyectos a un repositorio nuevo | 1 h |
+| 7 | [Buenas prácticas y seguridad](docs/07-buenas-practicas.md) | Estándares para todo el equipo | 20 min |
+| 8 | [Solución de problemas](docs/08-solucion-de-problemas.md) | Cómo deshacer errores comunes | consulta |
+| — | [Chuleta de comandos](docs/chuleta.md) | Resumen de una página | consulta |
+
+## ¿Tienes prisa?
+
+- **Solo quiero mover un repositorio a otro:** ve directo al [capítulo 6](docs/06-migracion.md) o usa el script [`scripts/migrar-repo.ps1`](scripts/migrar-repo.ps1).
+- **Quiero juntar varios proyectos en un solo repositorio:** [capítulo 6, escenario C](docs/06-migracion.md#escenario-c-juntar-varios-proyectos-en-un-solo-repositorio) y el script [`scripts/combinar-repos.ps1`](scripts/combinar-repos.ps1).
+
+## Contenido del repositorio
+
+```
+manual-git-github/
+├── README.md                  ← estás aquí
+├── docs/                      ← capítulos del manual
+└── scripts/
+    ├── migrar-repo.ps1        ← copia un repo a otro con todo su historial
+    ├── combinar-repos.ps1     ← junta varios repos en uno, cada uno en su carpeta
+    └── proyectos-ejemplo.csv  ← plantilla para combinar-repos.ps1
+```
+
+## Cómo contribuir
+
+¿Encontraste un error o quieres agregar algo? Es la mejor práctica para aprender:
+
+1. Haz un *fork* o crea una rama.
+2. Edita el archivo `.md` correspondiente.
+3. Abre un *pull request* explicando el cambio (ver [capítulo 5](docs/05-trabajo-en-equipo.md)).
+
+## Licencia
+
+Se recomienda publicar este manual bajo [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es), que permite compartirlo y adaptarlo citando la fuente. Al crear el repositorio en GitHub puedes elegir la licencia en el desplegable *Add a license*.

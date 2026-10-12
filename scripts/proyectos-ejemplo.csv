@@ -1,0 +1,4 @@
+carpeta,url,rama
+proyecto-inventario,https://github.com/empresa/inventario.git,main
+proyecto-tickets,https://github.com/empresa/tickets.git,main
+proyecto-reportes,https://github.com/empresa/reportes.git,master
