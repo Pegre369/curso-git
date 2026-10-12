@@ -1,6 +1,6 @@
 # 8. Solución de problemas
 
-[← Buenas prácticas](07-buenas-practicas.md) · [Índice de comandos →](indice-de-comandos.md)
+[← Buenas prácticas](07-buenas-practicas.md) · [Siguiente: Seguridad y colaboradores →](09-seguridad-y-colaboradores.md)
 
 ## Deshacer cosas
 
@@ -81,4 +81,4 @@ Windows y Linux usan distintos finales de línea. Agrega un archivo `.gitattribu
 
 ---
 
-[← Buenas prácticas](07-buenas-practicas.md) · [Índice de comandos →](indice-de-comandos.md)
+[← Buenas prácticas](07-buenas-practicas.md) · [Siguiente: Seguridad y colaboradores →](09-seguridad-y-colaboradores.md)

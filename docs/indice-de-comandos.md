@@ -27,6 +27,9 @@ Referencia de todos los comandos que aparecen en el manual. Se puede consultar d
 | **Unir una rama terminada** | `git merge <rama>` | [4](04-ramas-y-flujo.md) |
 | **Guardar cambios a medias para cambiar de rama** | `git stash` · `git stash pop` | [4](04-ramas-y-flujo.md) |
 | **Marcar una versión** | `git tag -a v1.0.0 -m "<mensaje>"` | [4](04-ramas-y-flujo.md) |
+| **Empezar una feature en Git Flow** | `git switch -c feature/<nombre> develop` | [10](10-estrategia-de-ramas.md#105-paso-a-paso) |
+| **Corregir producción (hotfix)** | `git switch -c hotfix/<version>-<nombre> main` | [10](10-estrategia-de-ramas.md#105-paso-a-paso) |
+| **Unir dejando constancia del merge** | `git merge --no-ff <rama>` | [10](10-estrategia-de-ramas.md#105-paso-a-paso) |
 | **Pedir revisión de mis cambios** | `gh pr create` | [5](05-trabajo-en-equipo.md) |
 | **Copiar un repo a otro con todo su historial** | `git clone --bare` → `git push --mirror` | [6](06-migracion.md) |
 | **Juntar varios repos en uno** | `git subtree add --prefix=<carpeta> <url> <rama>` | [6](06-migracion.md) |
@@ -151,6 +154,7 @@ Une otra rama a la rama actual. · [Cap. 4](04-ramas-y-flujo.md), [Cap. 6](06-mi
 | Variante | Uso |
 |----------|-----|
 | `git merge <rama>` | Une `<rama>` a la actual |
+| `git merge --no-ff <rama>` | Siempre crea un commit de merge (Git Flow, [Cap. 10](10-estrategia-de-ramas.md)) |
 | `git merge --abort` | Cancela un merge con conflictos |
 | `git merge <rama> --allow-unrelated-histories` | Une repositorios sin historia común |
 
@@ -235,6 +239,7 @@ Cambia de rama. · [Cap. 4](04-ramas-y-flujo.md)
 |----------|-----|
 | `git switch <rama>` | Cambia a una rama existente |
 | `git switch -c <rama>` | Crea la rama y cambia a ella |
+| `git switch -c <rama> <base>` | Crea la rama a partir de otra (por ejemplo, `develop`) |
 
 ### `git tag`
 Marca versiones. · [Cap. 4](04-ramas-y-flujo.md)
