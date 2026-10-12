@@ -22,6 +22,7 @@ Está pensado para líderes y equipos de TI que quieren adoptar control de versi
 | 8 | [Solución de problemas](docs/08-solucion-de-problemas.md) | Cómo deshacer errores comunes | consulta |
 | 9 | [Seguridad y gestión de colaboradores](docs/09-seguridad-y-colaboradores.md) | Agregar personas, roles, 2FA, CODEOWNERS, alertas y auditoría | 45 min |
 | 10 | [Estrategia de ramas: Git Flow y tipos de rama](docs/10-estrategia-de-ramas.md) | `main`/`develop`, feature, release, hotfix, chore, refactor… y cómo nombrarlas | 1 h |
+| 11 | [Administrar pull requests](docs/11-administrar-pull-requests.md) | Borradores, revisores, etiquetas, responder revisiones, conflictos, filtros y comandos `gh pr` | 45 min |
 | — | [Índice de comandos](docs/indice-de-comandos.md) | Búsqueda por tarea y referencia alfabética | consulta |
 
 ## ¿Tienes prisa?
