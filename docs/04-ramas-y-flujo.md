@@ -46,9 +46,13 @@ gitGraph
 | `hotfix/` | Corrección urgente en producción | `hotfix/caida-api-pagos` |
 | `docs/` | Solo documentación | `docs/manual-usuario` |
 
+> El catálogo completo de tipos (`chore/`, `refactor/`, `release/`, `test/`…) y las reglas para nombrar ramas están en el [capítulo 10](10-estrategia-de-ramas.md#103-catálogo-de-tipos-de-rama).
+
 ## El flujo diario recomendado (GitHub Flow)
 
-Es el flujo más sencillo y el que recomienda GitHub:
+Es el flujo más sencillo y el que recomienda GitHub. Ideal para aprender:
+
+> Si tu equipo trabaja con versiones planificadas y ambientes de prueba, usa **Git Flow** (ramas `main` + `develop`), explicado en el [capítulo 10](10-estrategia-de-ramas.md).
 
 ```powershell
 # 1. Actualiza main
